@@ -61,6 +61,10 @@ class PagesController extends AppController
         }
         $this->set(compact('page', 'subpage'));
 
+        $test = 'test';
+        unset($test);
+        $test .= 'test';
+
         try {
             return $this->render(implode('/', $path));
         } catch (MissingTemplateException $exception) {
