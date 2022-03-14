@@ -9,20 +9,13 @@ class ArticlesController extends AppController
 {
     public function index(): ?Response
     {
-        $indicate = $this->getIndicate();
+        $indicate = $this->getReport();
         echo $indicate;
         return $this->redirect('/');
     }
 
-    private function getIndicate(string $param): array
+    private function getReport()
     {
-        if (empty($param)) {
-            return '';
-        }
-
-        return [
-            '返り値の型',
-            'arrayとは限らないよ'
-        ];
+        return '返り値の型宣言をしていないメソッド';
     }
 }
