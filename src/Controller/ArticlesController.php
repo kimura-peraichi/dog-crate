@@ -14,8 +14,15 @@ class ArticlesController extends AppController
         return $this->redirect('/');
     }
 
-    private function getIndicate()
+    private function getIndicate(string $param): array
     {
-        return '返り値の型を指定していないメソッド';
+        if (empty($param)) {
+            return '';
+        }
+
+        return [
+            '返り値の型',
+            'arrayとは限らないよ'
+        ];
     }
 }
