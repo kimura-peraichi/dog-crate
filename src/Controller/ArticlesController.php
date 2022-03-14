@@ -9,7 +9,8 @@ class ArticlesController extends AppController
 {
     public function index(): ?Response
     {
-        echo "test";
+        $indicate = $this->getIndicate();
+        echo $indicate;
         return $this->redirect('/');
     }
 
