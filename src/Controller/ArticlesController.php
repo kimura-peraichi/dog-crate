@@ -9,12 +9,12 @@ class ArticlesController extends AppController
 {
     public function index(): ?Response
     {
-        $indicate = $this->getIndicate();
+        $indicate = $this->getReport();
         echo $indicate;
         return $this->redirect('/');
     }
 
-    private function getIndicate(string $param): array
+    private function getReport(string $param): array
     {
         if (empty($param)) {
             return '';
