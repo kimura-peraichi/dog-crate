@@ -12,4 +12,9 @@ class ArticlesController extends AppController
         echo "test";
         return $this->redirect('/');
     }
+
+    private function getIndicate()
+    {
+        return '返り値の型を指定していないメソッド';
+    }
 }
