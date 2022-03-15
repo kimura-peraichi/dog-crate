@@ -18,4 +18,9 @@ class ArticlesController extends AppController
     {
         return '返り値の型宣言をしていないメソッド';
     }
+
+    private function getReportSecond(string $param): string
+    {
+        return $param;
+    }
 }
