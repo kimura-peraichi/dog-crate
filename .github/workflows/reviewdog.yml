@@ -18,9 +18,13 @@ jobs:
       - uses: reviewdog/action-setup@v1
         with:
           reviewdog_version: latest
-      - name: phpstan install
-        run: composer require phpstan/phpstan
+      - name: install phpstan and psalm
+        run: composer require phpstan/phpstan vimeo/psalm
       - name: run phpstan and reviewdog
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./vendor/bin/phpstan analyse --error-format=raw --no-progress | reviewdog -reporter=github-pr-review -f=phpsta
+        run: ./vendor/bin/phpstan analyse --error-format=raw --no-progress | reviewdog -reporter=github-pr-review -f=phpstan
+      - name: Run reviewdog with psalm
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./vendor/bin/psalm --output-format=text | reviewdog -reporter=github-pr-review -f=psalm
